@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movie } from '../app/movie';
+import { Movie, MovieResult } from '../app/movie';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,8 +12,8 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getMovies(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>("https://api.themoviedb.org/3/search/movie?api_key=b2728cbd1f0229bfdeb5442f72ab6a93&query=Star");
+  getMovies(): Observable<MovieResult> {
+    return this.httpClient.get<MovieResult>("https://www.omdbapi.com/?s=toy&apikey=33865882");
   }
 
   getMovieById(id: number): Observable<Movie> {

@@ -1,16 +1,17 @@
 export interface Movie {
-    id: number;
-    title: string;
-    year: number;
-    viewer_rating: number;
-    genre: string;
-    cover_img: string;
-    rating: string;
-    duration_min: number;
-    cast: string[];
+    Poster: string;
+    Title: string;
+    Type: string;
+    Year: string;
+    //imdbID : number;
+
 }
 
-//adult: boolean;
+export interface MovieResult {
+    Search: Movie[]
+}
+
+
 //id: number;
 //original_title: string;
 //poster_path: string;

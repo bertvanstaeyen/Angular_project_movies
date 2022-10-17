@@ -8,7 +8,7 @@ import { Movie } from '../movie';
 })
 export class WatchlistItemComponent implements OnInit {
 
-  @Input() movie: Movie = {id: 0, title: "naam film", year: 2000, viewer_rating: 20, genre: "", cover_img: "", rating: "", duration_min: 90, cast: ["Name 1", "Name 2"]};
+  @Input() movie: Movie = { Title: "naam film", Year: "", Type: "", Poster: ""};
 
   constructor() { }
 
