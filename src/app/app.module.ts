@@ -11,6 +11,7 @@ import { WatchlistItemComponent } from './watchlist-item/watchlist-item.componen
 import { MovieComponent } from './movie/movie.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     WatchlistComponent,
     WatchedMoviesComponent,
     WatchlistItemComponent,
-    MovieComponent
+    MovieComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
