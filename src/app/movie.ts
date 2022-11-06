@@ -3,7 +3,7 @@ export interface Movie {
     Title: string;
     Type: string;
     Year: string;
-    //imdbID : number;
+    imdbID : number;
 
 }
 

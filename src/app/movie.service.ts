@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { Movie, MovieResult } from '../app/movie';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class MovieService {
+
+  private API_URL = `https://omdbapi.com/?`;
+  private API_KEY = `&apikey=33865882`;
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getMovies(): Observable<MovieResult> {
-    return this.httpClient.get<MovieResult>("https://www.omdbapi.com/?s=toy&apikey=33865882");
+  getMovies(searchString: string): Observable<any> {
+    return this.httpClient.get(`${this.API_URL}&s=${searchString}${this.API_KEY}`);
   }
 
-  getMovieById(id: number): Observable<Movie> {
-    return this.httpClient.get<Movie>("https://api.themoviedb.org/3/movie/" + id +"/watch/providers?api_key=b2728cbd1f0229bfdeb5442f72ab6a93");
-  }
 
 }

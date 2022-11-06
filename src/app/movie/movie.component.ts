@@ -8,7 +8,9 @@ import { Movie } from '../movie';
 })
 export class MovieComponent implements OnInit {
 
-  @Input() movie: Movie = {Title: "naam film", Year: "", Poster: "", Type: ""};
+  @Input() movie: Movie = {
+    Title: "naam film", Year: "", Poster: "", Type: "", imdbID: 0
+  };
 
   constructor() { }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieResult } from '../movie';
-import { MoviesService } from '../movie.service';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -10,24 +10,12 @@ import { MoviesService } from '../movie.service';
 })
 export class WatchlistComponent implements OnInit {
 
-    movies$: Observable<MovieResult> = new Observable<MovieResult>();
+   // movies$: Observable<MovieResult> = new Observable<MovieResult>();
 
-    constructor(private movieService: MoviesService) { }
+    constructor(private movieService: MovieService) { }
     //movies!: Movie[];
     
     ngOnInit(): void {
-      this.movies$ = this.movieService.getMovies();
-      //this.movieService.getMovies().subscribe(
-      //    m => {
-      //      console.log(m);
-      //      this.movies = m;
-      //    }
-      //)
-      console.log(this.movies$);
-  
-      let test = this.movieService.getMovies().subscribe(r => {
-        console.log(r);
-      })
     }
   }
 
