@@ -4,8 +4,10 @@
   *ngIf="movieDetails$ as movie">
 
   <!-- <pre>{{ movie | json }}</pre> -->
-  <button class="btn btn-primary" routerLink="/">Go Back</button>
-
+<button class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
+              routerLink="/">
+              Go Back
+            </a></button>
   <!-- Portfolio Item Heading -->
   <h1 class="my-4">{{ movie.Title }}
     <small>
@@ -14,6 +16,12 @@
       </span>
     </small>
   </h1>
+
+  <button class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
+    routerLink="/">
+    Add To Watchlist
+  </a></button>
+<!-- Portfolio Item Heading -->
 
   <!-- Portfolio Item Row -->
   <div class="row">

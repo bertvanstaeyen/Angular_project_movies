@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private movieService: MovieService) { }
   
   ngOnInit(): void {
-    
+    //this.movieService.getSuggestedMovies().subscribe();
   }
 
   // search movies
