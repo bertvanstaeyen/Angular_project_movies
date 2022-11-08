@@ -16,11 +16,11 @@ export class WatchlistService {
     return this.httpClient.get<Movie[]>("http://localhost:3000/movies");
   }
 
-  getMovieById(id: number): Observable<Movie> {
-    return this.httpClient.get<Movie>("http://localhost:3000/movies/" + id);
+  getMovieById(imdbID: number): Observable<Movie> {
+    return this.httpClient.get<Movie>("http://localhost:3000/movies/" + imdbID);
   }
 
-  putCategory(movie: Movie): Observable<Movie> {
+  putMovie(movie: Movie): Observable<Movie> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 

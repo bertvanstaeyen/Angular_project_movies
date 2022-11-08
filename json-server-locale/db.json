@@ -14,5 +14,15 @@
             "Type": "Movie",
             "Poster": "https://m.media-amazon.com/images/M/MV5BMWM5ZDcxMTYtNTEyNS00MDRkLWI3YTItNThmMGExMWY4NDIwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg"
         }
+    ],
+
+    "watched_movies": [
+        {       
+            "Title": "Toy Story",
+            "Year": "1995",
+            "imdbID": "0114709",
+            "Type": "Movie",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg"
+        }
     ]
 }
