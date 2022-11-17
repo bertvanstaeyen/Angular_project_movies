@@ -1,31 +1,54 @@
-<div class="">
-    <div class="py-3 md:col-auto sm:max-w-xl sm:mx-auto">
-      <div class="bg-white shadow-lg border-gray-100 max-h-80	 border rounded-3xl p-6 flex space-x-6">
-        <div class="h-48 overflow-visible md:w-1/2 w-1/3 pb-12">
-          <img class="rounded-3xl max-h-72 shadow-lg" src="{{movie.Poster}}" alt="">
-        </div>
+<div class="containerDivp-2 rounded-lg">
+  <h1 class="text-3xl font-bold">Search Movies</h1>
 
-        <div class="flex flex-col w-1/2 space-y-4">
-          <div class="flex justify-between items-start">
-            <h2 class="text-3xl font-bold">{{movie.Title}}</h2>
-          </div>
+ <!-- line -->
+ <div aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
 
-          <div>
-            <div class="text-sm text-gray-400"></div>
-            <div class="text-lg text-gray-800">{{ movie.Year }}</div>
-          </div>
+  <form (ngSubmit)="onSearch()" class="searchContainer">
+      <div class="mb-6">
+          <div class="flex-col grid grid-cols-5 gap-1 mb-3 pb-4">
+              <input type="text" id="title" name="title" [(ngModel)]="searchName" class="p-2 col-span-full w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search movie...">
+          </div>     
+      </div>
+  </form>
 
-          <div class="flex text-2xl font-bold text-a">
-            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
-              routerLink="/movie" 
-              [queryParams]="{ movieId: movie.imdbID }" 
-              class="btn btn-primary">
-              Learn More
-            </a></button>
-            <a class="p-1 hover:bg-gray-500 text-black font-semibold border-gray-500 border-2 rounded" style="position: absolute; bottom: 10px;" href="/movie/{{movie.imdbID}}">Show details</a>
-            
+  <div class="flex-wrap flex">
+      <div *ngFor="let movie of movies" class="w-full md:w-1/2 xl:w-1/3 pt-10 p-1 md:pb-4 xl:pb-6">
+        <div class="">
+          <div class="py-3 md:col-auto sm:max-w-xl sm:mx-auto">
+            <div class="bg-white shadow-lg border-gray-100 max-h-80	 border rounded-3xl p-6 flex space-x-6">
+              <div class="h-48 overflow-visible md:w-1/2 w-1/3 pb-12">
+                <img class="rounded-3xl max-h-72 shadow-lg" src="{{movie.Poster}}" alt="">
+              </div>
+      
+              <div class="flex flex-col w-1/2 space-y-4">
+                <div class="flex justify-between items-start">
+                  <h2 class="text-3xl font-bold">{{movie.Title}}</h2>
+                </div>
+      
+                <div>
+                  <div class="text-sm text-gray-400"></div>
+                  <div class="text-lg text-gray-800">{{ movie.Year }}</div>
+                </div>
+      
+                <div class="flex text-2xl font-bold text-a">
+                  <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		
+                    <a href="/movie/{{movie.imdbID}}"
+                    class="btn btn-primary">
+                    Learn More
+                  </a></button>
+                  
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
+</div>
+
+

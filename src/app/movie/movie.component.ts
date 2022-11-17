@@ -1,5 +1,7 @@
-import { Component, Input, KeyValueDiffers, OnInit } from '@angular/core';
-import { Movie } from '../movie';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie.service';
+import { Movie } from '../models/movie';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -7,24 +9,26 @@ import { Movie } from '../movie';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-  isAdd: boolean = false;
-  isSubmitted: boolean = false;
 
-  @Input() movie: Movie = {
-    Title: "naam film", Year: "", Poster: "", Type: "", imdbID: 0
-  };
+  noSearch: boolean = true;
+  searchName: any = localStorage.getItem("searchname");
+  movies:any;
 
-  constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    
+  constructor(private movieService:MovieService){
+    this.movieService.getData(this.searchName).subscribe((data)=>{
+          this.movies = data
+        })
   }
 
-  onSubmit() {
-    this.isSubmitted = true;
-    if (this.isAdd) {
-      
-    }
+  onSearch(){
+    localStorage.setItem("searchname", this.searchName)
+    this.movieService.getData(this.searchName).subscribe((data)=>{
+      this.movies = data
+      console.warn(this.movies)
+    })
   }
+
 
 }

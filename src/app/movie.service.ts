@@ -15,6 +15,23 @@ export class MovieService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getData(searchQuery: string): Observable<Array<Movie>> {
+
+
+    return this.httpClient.get(`https://www.omdbapi.com/?apikey=33865882&s=${searchQuery}`)
+    .pipe(
+        map((response: any) => response.Search)
+      );
+  }
+
+  getDetailData(imdbId: string): Observable<MovieDetail>  {
+
+    return this.httpClient.get(`https://www.omdbapi.com/?apikey=33865882&!=${imdbId}`)
+    .pipe(
+      map((response: any) => response.Search)
+    );
+  }
+
   getSuggestedMovies(): Observable<any> {
     return this.httpClient.get(`${this.API_URL}&s=qstar${this.API_KEY}`);
   }

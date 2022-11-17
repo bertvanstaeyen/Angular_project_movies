@@ -12,6 +12,12 @@ import { MovieComponent } from './movie/movie.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { FormsModule } from '@angular/forms';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +33,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

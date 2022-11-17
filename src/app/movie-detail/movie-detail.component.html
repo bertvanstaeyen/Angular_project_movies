@@ -1,80 +1,48 @@
-<!-- Page Content -->
-<div 
-  class="container">
+<div class="grid grid-cols-3 gap-4">
+  <div class="md:col-span-2 bg-gray-100 p-2 rounded-lg sm:col-span-3 col-span-3 pb-5 relativeDiv" >
+      <div class="pb-2">
+          <div class="grid grid-cols-5">
+              <p class="text-3xl text-black font-bold pt-1 pl-3 col-span-4">{{movieDetail.Title}}</p>
+              
+          </div>
+          <div class="float-right">
+            <p class="pt-3 text-gray-700">IMDB rating</p>
+            <div class="flex">
+                <img class="ml-1 pt-1 w-5 h-6" src="../../assets/star-icon.png" alt="stars" >
+                <p class="pl-1 text-black font-bold text-lg">{{movieDetail.imdbRating}}/10</p>
+            </div>
+        </div>
 
-  <!-- <pre>{{ movie | json }}</pre> -->
-<button class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
-              routerLink="/">
-              Go Back
-            </a></button>
-  <!-- Portfolio Item Heading -->
-  <h1 class="my-4">{{ movieDetail.Title }}
-    <small>
-      <span class="badge badge-primary">
-        {{ movieDetail.Rated }}
-      </span>
-    </small>
-  </h1>
-
-  <button class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
-    routerLink="/">
-    Add To Watchlist
-  </a></button>
-<!-- Portfolio Item Heading -->
-
-  <!-- Portfolio Item Row -->
-  <div class="row">
-
-    <div class="col-md-8">
-      <img 
-        class="img-fluid" 
-        [src]="movieDetail.Poster" 
-        [alt]="movieDetail.Title">
-    </div>
-
-    <div class="col-md-4">
-      <span 
-        class="badge badge-success"
-        *ngFor="let genre of movieDetail.Genre">
-        {{ genre }}
-      </span>
-
-      <h3 class="my-3">Plot</h3>
-      <p>{{ movieDetail.Plot }}</p>
-
-      <h3 class="my-3">Ratings</h3>
-      <ul class="list-group">
-        <li 
-          class="list-group-item"
-          *ngFor="let rating of movieDetail.Ratings">
-          {{ rating.Source }} - {{ rating.Value }}
-        </li>
-      </ul>
-
-      <h3 class="my-3">Plot</h3>
-      <p>{{ movieDetail.Plot }}</p>
-    </div>
-
-  </div>
-  <!-- /.row -->
-
-  <!-- Related Projects Row -->
-  <div *ngIf="movieDetail.similarMovies.length > 0">
-    <h3 class="my-4">Similar Movies</h3>
-    <div class="row">
-      <div 
-        class="col-md-3 col-sm-6 mb-4"
-        *ngFor="let similarMovie of movieDetail.similarMovies">
-        <a 
-          routerLink="/movie-detail" 
-          [queryParams]="{ movieId: similarMovie.imdbID }" >
-          <img 
-            class="img-fluid similar-poster" 
-            [src]="similarMovie.Poster"
-            [alt]="similarMovie.Title">
-        </a>
+          <div class="grid grid-cols-7">
+              <p class="text-md text-gray-700 pl-3 col-span-5">{{movieDetail.Year}} <span class="font-bold">-</span> {{movieDetail.Runtime}} <span class="font-bold">-</span> {{movieDetail.Language}}</p>
+          </div>
+      </div>     
+      <div class="pb-5">
+          <p class="pl-3 text-gray-700">{{movieDetail.Genre}} <span class="font-bold"> - </span> {{movieDetail.Rated}}</p>
       </div>
-    </div>
+      
+      <div class="pt-5 grid grid-cols-7" pt-5>
+          <div class="sm:col-span-5 col-span-7">
+              <hr class="ml-2 text-gray-600">
+              <p class="pl-2 pt-1 pb-1 grid grid-cols-5"><span class="bold text-black col-span-1">Director:</span><span class="text-black col-span-4">{{movieDetail.Director}}</span></p>
+              <hr class="ml-2 text-gray-600">
+              <p class="pl-2 pt-1 pb-1 grid grid-cols-5"><span class="bold text-black col-span-1">Writer:</span><span class="text-black col-span-4">{{movieDetail.Writer}}</span></p>
+              <hr class="ml-2 text-gray-600">
+              <p class="pl-2 pt-1 pb-1 grid grid-cols-5"><span class="bold text-black col-span-1">Actors:</span><span class="text-black col-span-4">{{movieDetail.Actors}}</span></p>
+              <hr class="ml-2 text-gray-600">
+          </div>
+      </div>
+      <div class="grid grid-cols-full">
+        <div>
+                 <p class="p-2 text-black">{{movieDetail.Plot}}</p>
+             </div>
+         
+     </div>
+
+      <button (click)="movieToWatchList()" class="pb-3 pt-2 pr-3 pl-3 m-1 mt-16 float-right hover:bg-gray-500 bg-slate-800 text-white font-semibold border-gray-200 border-1 rounded absoluteItem">Add to watchlist</button>
+
+  </div>    
+  <div class="content-center pt-3 pb-3 rounded-lg col-span-3 md:col-span-1">
+      <img class="mx-auto" src={{movieDetail.Poster}} alt=`{{movieDetail.Title}}`>
   </div>
 </div>
-<!-- /.container -->
