@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
-import { Movie } from '../models/movie';
-import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -29,6 +27,4 @@ export class MovieComponent implements OnInit {
       console.warn(this.movies)
     })
   }
-
-
 }

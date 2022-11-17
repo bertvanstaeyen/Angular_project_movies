@@ -7,13 +7,13 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
-import { WatchlistItemComponent } from './watchlist-item/watchlist-item.component';
 import { MovieComponent } from './movie/movie.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { FormsModule } from '@angular/forms';
 import { Routes } from '@angular/router';
+import { ReviewComponent } from './review/review.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
@@ -26,9 +26,9 @@ const routes: Routes = [
     HomeComponent,
     WatchlistComponent,
     WatchedMoviesComponent,
-    WatchlistItemComponent,
     MovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

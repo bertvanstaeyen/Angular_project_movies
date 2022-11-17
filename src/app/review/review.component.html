@@ -1,0 +1,31 @@
+<div *ngIf="movie" class="grid grid-cols-3 gap-4">
+    <div class="col-span-2 bg-gray-100 p-2 rounded-lg">
+        <p class="text-3xl text-black font-bold pt-1 pl-3 col-span-4">{{movie.Title}} Review</p>
+        <p class="text-md text-gray-800 pl-3">{{movie.Year}}</p>
+        <div class="bg-gray-200 rounded ml-2 mt-5 w-2/4 p-2">
+            <div>
+                <form (ngSubmit)="addReaction(movie)" class="pt-1">
+                    <button type="submit"  class="p-1 mb-2 w-28 hover:bg-gray-400 text-black font-semibold border-gray-800 border-2 rounded">Add reaction</button>
+                    <textarea [(ngModel)]="movieReaction" name="movieReaction" ngDefaultControl rows="4" class="block p-2.5 w-full text-sm rounded-lg border dark:bg-gray-300 border-gray-600 placeholder-black text-black" placeholder="{{movie.Reaction}}"></textarea>
+                  </form>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="b- ml-2 mt-5 w-1/4 p-2">
+                <div>
+                    <form (ngSubmit)="addRating(movie)" class="pt-1 flex">
+                        <img src="../../assets/Star-alt-icon.png" class="h-4 w-4 mt-1 mr-1" alt="">
+                        <input type="number" [(ngModel)]="movieRating" name="movieRating" class="w-10 bg-gray-300 pl-2 rounded-md mr-1"  placeholder="{{movie.Rating}}">
+                        <p class="text-gray-800">/10</p>
+                      </form>
+                </div>
+            </div>
+            <div class=" rounded mt-5 w-1/4">
+                <button (click)="watched(movie)" class="p-1 m-1 w-20 hover:bg-gray-400 text-black font-semibold border-gray-500 border-2 rounded">Watched</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-center pt-3 pb-3 rounded-lg">
+        <img class="mx-auto" src={{movie.Poster}} alt=`{{movie.Title}}`>
+    </div>
+</div>

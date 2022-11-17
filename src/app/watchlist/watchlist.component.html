@@ -7,16 +7,23 @@
     </div>
   </div>
 
-
-  <!-- movie list component -->
-<div class="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 dark:divide-slate-200/5 dark:highlight-white/10">
-    <nav class="py-4 px-4 sm:px-6 bg-color-custom br-custom lg:px-4 xl:px-6 text-sm font-medium">
-        <ul class="flex space-x-3">
-            <li><div class="px-3 py-2 rounded-md bg-slate-900  text-white cursor-pointer">Watchlist<span class="hidden sm:inline lg:hidden xl:inline"></span></div></li>
-        </ul>
-    </nav>
-
-    <app-watchlist-item class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex bg-color-custom" *ngFor="let movie of (movies$ | async)" [movie]="movie"></app-watchlist-item>
-
-    
+  <div class="rounded-lg">
+    <div>
+        <div *ngFor="let item of movies">
+            <div *ngIf="item.id != 1 && item.Watched == false" class="p-5 BorderBottom">
+                <div class="grid grid-cols-12 firstLine">
+                    <img src="{{item.Poster}}" class="h-32 col-span-3" alt="">
+                    <div class="DivForMiddle pl-3 pr-3 col-span-6"><p class="text-gray-800 font-bold text-xl pt-10 ItemForMiddle md:text-2xl lg:text-3xl xl:text-3xl">{{item.Title}} <span class="font-bold">-</span> {{item.Year}}</p></div>
+                    <div class="float-right col-span-3">
+                            <div>
+                                <button class="p-1 w-20 m-1 ml-0 sm:ml-1 hover:bg-slate-400 text-black font-semibold border-gray-500 border-2 rounded"><a href="/watchlist/{{item.id}}">Review</a></button>
+                            </div>
+                            <div>
+                                <button (click)="removeMovie(item.id)" class="ml-0 sm:ml-1 p-1 w-20 m-1 hover:bg-slate-400 text-black font-semibold border-gray-500 border-2 rounded">Remove</button>
+                            </div>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

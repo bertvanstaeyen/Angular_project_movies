@@ -1,19 +1,41 @@
-<h1 class="text-3xl font-bold">Watched Movies</h1>
+<div>
+  <div class="BorderBottom">
+      <h1 class="text-5xl font-bold text-center mb-3 text-black pb-5 pt-3">Watched movies</h1>
 
- <!-- line -->
- <div aria-hidden="true">
-    <div class="py-5">
-      <div class="border-t border-gray-200"></div>
-    </div>
   </div>
-  
-  <!-- movie list component -->
-  <div class="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 dark:divide-slate-200/5 dark:highlight-white/10">
-    <nav class="py-4 px-4 sm:px-6 lg:px-4 xl:px-6 text-sm font-medium">
-        <ul class="flex space-x-3">
-            <li><div class="px-3 py-2 rounded-md bg-slate-900 text-white cursor-pointer">Watchlist<span class="hidden sm:inline lg:hidden xl:inline"></span></div></li>
-        </ul>
-    </nav>
-
-    <app-watchlist-item class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex" *ngFor="let movie of (movies$ | async)" [movie]="movie"></app-watchlist-item>
-  </div>
+  <div>
+          <div *ngFor="let item of movies">
+              <div *ngIf="item.id != 1 && item.Watched != false" class="p-5 BorderBottom relativeContainer ">
+                  <div class="grid grid-cols-8 gap-2 ">
+                      <div class="sm:col-span-1 col-span-2">
+                          <img src="{{item.Poster}}" class="h-28" alt="">
+                      </div>
+                      <div class="align-middle p-3 DivForMiddle flex sm:col-span-2 md:col-span-2 col-span-4">
+                          <p class="text-gray-800 text-xl ItemForMiddle">{{item.Title}} <span class="font-bold">-</span> {{item.Year}}</p>
+                      </div>
+                      <div  *ngIf="item.Rating != null" class="sm:col-span-1 col-span-2 h-full DivForMiddle">
+                          <div class="align-middle ItemForMiddle">
+                              <p class="text-gray-800">My rating</p>
+                              <div class="flex">
+                                  <img src="../../assets/star-icon.png" class="h-4 w-4 mt-1 mr-1" alt="">
+                                  <p class="text-gray-800">{{item.Rating}}/10</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="align-middle bg-gray-200 sm:col-span-3 col-span-6 h-28 rounded-md p-2 mt-4 md:mt-0">
+                          <div class="w-full">
+                              <p *ngIf="item.Reaction != null">{{item.Reaction}}</p>
+                              <p *ngIf="item.Reaction == null">N/A</p>
+                          </div>
+                      </div>
+                      <div class="align-middle p-3 md:col-span-1 col-span-2 pr-0">
+                          <div>
+                              <button class="p-1 w-full md:w-20 m-1 hover:bg-slate-400 text-black md:font-semibold border-gray-800 border-2 rounded"><a href="/watchlist/{{item.id}}">Review</a></button>
+                          </div>
+                          <button (click)="removeMovie(item.id)" class="p-1 w-full md:w-20 m-1 hover:bg-slate-400 text-black md:font-semibold border-gray-800 border-2 rounded shadow">Remove</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
