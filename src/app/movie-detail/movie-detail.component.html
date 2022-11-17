@@ -1,7 +1,6 @@
 <!-- Page Content -->
 <div 
-  class="container"
-  *ngIf="movieDetails$ as movie">
+  class="container">
 
   <!-- <pre>{{ movie | json }}</pre> -->
 <button class="inline-flex justify-center rounded-md border border-transparent bg-white py-2 px-4 text-sm font-medium text-slate-600 shadow-sm focus:bg-slate-700 focus:text-white focus:outline-none ring-1 ring-slate-500 hover:ring-2 hover:ring-slate-500 hover:ring-offset-2">		<a 
@@ -9,10 +8,10 @@
               Go Back
             </a></button>
   <!-- Portfolio Item Heading -->
-  <h1 class="my-4">{{ movie.Title }}
+  <h1 class="my-4">{{ movieDetail.Title }}
     <small>
       <span class="badge badge-primary">
-        {{ movie.Rated }}
+        {{ movieDetail.Rated }}
       </span>
     </small>
   </h1>
@@ -29,43 +28,43 @@
     <div class="col-md-8">
       <img 
         class="img-fluid" 
-        [src]="movie.Poster" 
-        [alt]="movie.Title">
+        [src]="movieDetail.Poster" 
+        [alt]="movieDetail.Title">
     </div>
 
     <div class="col-md-4">
       <span 
         class="badge badge-success"
-        *ngFor="let genre of movie.Genre">
+        *ngFor="let genre of movieDetail.Genre">
         {{ genre }}
       </span>
 
       <h3 class="my-3">Plot</h3>
-      <p>{{ movie.Plot }}</p>
+      <p>{{ movieDetail.Plot }}</p>
 
       <h3 class="my-3">Ratings</h3>
       <ul class="list-group">
         <li 
           class="list-group-item"
-          *ngFor="let rating of movie.Ratings">
+          *ngFor="let rating of movieDetail.Ratings">
           {{ rating.Source }} - {{ rating.Value }}
         </li>
       </ul>
 
       <h3 class="my-3">Plot</h3>
-      <p>{{ movie.Plot }}</p>
+      <p>{{ movieDetail.Plot }}</p>
     </div>
 
   </div>
   <!-- /.row -->
 
   <!-- Related Projects Row -->
-  <div *ngIf="movie.similarMovies.length > 0">
+  <div *ngIf="movieDetail.similarMovies.length > 0">
     <h3 class="my-4">Similar Movies</h3>
     <div class="row">
       <div 
         class="col-md-3 col-sm-6 mb-4"
-        *ngFor="let similarMovie of movie.similarMovies">
+        *ngFor="let similarMovie of movieDetail.similarMovies">
         <a 
           routerLink="/movie-detail" 
           [queryParams]="{ movieId: similarMovie.imdbID }" >

@@ -5,6 +5,7 @@ import { map, switchMap } from "rxjs/operators";
 import { MovieService } from "../movie.service";
 import { MovieDetail, Movie } from "../movie";
 import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-movie-detail",
@@ -12,31 +13,27 @@ import { Observable } from "rxjs";
   styleUrls: ["./movie-detail.component.css"]
 })
 export class MovieDetailComponent implements OnInit {
-  movieDetails$: any = [];
+  movieDetail: any;
+  movieId = this.route.snapshot.paramMap.get('id')?.toString();
 
-  constructor(
-    private readonly route: ActivatedRoute,
-    private readonly movieService: MovieService
-  ) {}
+  constructor(private movieService: MovieService, private route: ActivatedRoute, private http: HttpClient) {
+    this.movieDetail = this.http.get(`https://www.omdbapi.com/?apikey=33865882&!=${this.movieId}`).subscribe((data)=>{
+      this.movieDetail = data
+      console.warn(data)
+    })
+   }
 
-  ngOnInit() {
-    this.movieDetails$ = this.route.queryParams.pipe(
-      map(queryParams => queryParams["movieId"]),
-      switchMap(imdbId => this.movieService.getMovieDetails(imdbId)),
-      switchMap((movie: MovieDetail) =>
-        this.movieService.getMovies(movie.Title).pipe(
-          map((similarMovies: Array<Movie>) =>
-            similarMovies.filter(
-              (similarMovie: Movie) => similarMovie.Title !== movie.Title
-            )
-          ),
-          map((similarMovies: Array<Movie>) => ({
-            ...movie,
-            similarMovies
-          }))
-        )
-      )
-    );
-    console.log(this.movieDetails$);
+   ngOnInit(): void {
+  }
+
+  //Add movie to watchlist
+  movieToWatchList() {
+    if (this.movieDetail.Title != null) {
+      this.http.post('http://localhost:3000/moviedetail', 
+      {Title: this.movieDetail.Title, Poster: this.movieDetail.Poster, Year: this.movieDetail.Year, Watched: false, Rating:null, Reaction:null} ).subscribe((data)=>{
+        console.warn(data)
+      })  
+    }
+    window.location.href = '/watchlist';
   }
 }

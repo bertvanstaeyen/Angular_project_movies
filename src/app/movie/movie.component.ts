@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, KeyValueDiffers, OnInit } from '@angular/core';
 import { Movie } from '../movie';
 
 @Component({
@@ -7,6 +7,8 @@ import { Movie } from '../movie';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
+  isAdd: boolean = false;
+  isSubmitted: boolean = false;
 
   @Input() movie: Movie = {
     Title: "naam film", Year: "", Poster: "", Type: "", imdbID: 0
@@ -18,5 +20,11 @@ export class MovieComponent implements OnInit {
     
   }
 
+  onSubmit() {
+    this.isSubmitted = true;
+    if (this.isAdd) {
+      
+    }
+  }
 
 }

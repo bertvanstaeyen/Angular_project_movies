@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie} from '../movie';
 import { MovieService } from '../movie.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,32 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isAdd: boolean = false;
+  isSubmitted: boolean = false;
+
+  movie: Movie = {
+    Title: '',
+    Year: '',
+    imdbID: 0,
+    Type: '',
+    Poster: ''
+  }
 
   movies: any = [];
 
-  constructor(private movieService: MovieService) { }
+  movie$: Subscription = new Subscription();
+  postMovie$: Subscription = new Subscription();
+
+
+  constructor(private router: Router, private movieService: MovieService) { 
+    this.isAdd = this.router.getCurrentNavigation()?.extras.state?.['mode'] === 'add';
+
+    if (!this.isAdd) {
+      this.isAdd = true;
+    }
+
+
+  }
   
   ngOnInit(): void {
     //this.movieService.getSuggestedMovies().subscribe();
@@ -25,4 +48,15 @@ export class HomeComponent implements OnInit {
       this.movies = response.Search;
     });
   }
+  onSubmit() {
+    this.isSubmitted = true;
+    if (this.isAdd) {
+      this.postMovie$ = this.movieService.postMovie(this.movie).subscribe({
+        next: (v) => this.router.navigateByUrl("/Watchlist"),
+      });
+    }
+    
+  }
+
+
 }

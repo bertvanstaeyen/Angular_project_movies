@@ -23,11 +23,19 @@ export class MovieService {
     return this.httpClient.get(`${this.API_URL}&s=${searchString}${this.API_KEY}`);
   }
 
-  getMovieDetails(imdbId: string): Observable<any> {
-    return this.httpClient.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${imdbId}&plot=full`);
+  //getMovieDetails(imdbId: string): Observable<any> {
+  //  return this.httpClient.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${imdbId}&plot=full`);
+  //}
+  
+  getMovieDetails(imdbId: string): Observable<MovieDetail>  {
+
+    return this.httpClient.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${imdbId}`)
+    .pipe(
+      map((response: any) => response.Search)
+    );
   }
 
-  putCategory(movie: Movie): Observable<Movie> {
+  postMovie(movie: Movie): Observable<Movie> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
