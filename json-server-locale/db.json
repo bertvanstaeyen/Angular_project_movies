@@ -10,41 +10,6 @@
       "Reaction": null
     },
     {
-      "Title": "Toy Story 2",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMWM5ZDcxMTYtNTEyNS00MDRkLWI3YTItNThmMGExMWY4NDIwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
-      "Year": "1999",
-      "Watched": true,
-      "Rating": 6,
-      "id": 3
-    },
-    {
-      "Title": "Toy Story 3",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg",
-      "Year": "2010",
-      "Watched": false,
-      "Rating": null,
-      "Reaction": null,
-      "id": 4
-    },
-    {
-      "Title": "Toy Story 4",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_SX300.jpg",
-      "Year": "2019",
-      "Watched": false,
-      "Rating": null,
-      "Reaction": null,
-      "id": 5
-    },
-    {
-      "Title": "Cars",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg",
-      "Year": "2006",
-      "Watched": false,
-      "Rating": null,
-      "Reaction": null,
-      "id": 6
-    },
-    {
       "Title": "American Psycho",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZTM2ZGJmNjQtN2UyOS00NjcxLWFjMDktMDE2NzMyNTZlZTBiXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Year": "2000",
@@ -52,6 +17,15 @@
       "Rating": 8,
       "Reaction": "great movie\n",
       "id": 7
+    },
+    {
+      "Title": "Harry Potter and the Deathly Hallows: Part 2",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+      "Year": "2011",
+      "Watched": false,
+      "Rating": null,
+      "Reaction": null,
+      "id": 8
     }
   ]
 }

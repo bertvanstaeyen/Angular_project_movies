@@ -7,18 +7,16 @@ import { map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
 
   private API_URL = `https://omdbapi.com/?`;
-  private API_KEY = `&apikey=33865882`;
+  private API_KEY = `33865882`;
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getData(searchQuery: string): Observable<Array<Movie>> {
-
-
-    return this.httpClient.get(`https://www.omdbapi.com/?apikey=33865882&s=${searchQuery}`)
+    return this.httpClient.get(`${this.API_URL}apikey=${this.API_KEY}&s=${searchQuery}`)
     .pipe(
         map((response: any) => response.Search)
       );
@@ -26,7 +24,7 @@ export class MovieService {
 
   getDetailData(imdbId: string): Observable<MovieDetail>  {
 
-    return this.httpClient.get(`https://www.omdbapi.com/?apikey=33865882&!=${imdbId}`)
+    return this.httpClient.get(`${this.API_URL}apikey${this.API_KEY}&!=${imdbId}`)
     .pipe(
       map((response: any) => response.Search)
     );
@@ -39,14 +37,10 @@ export class MovieService {
   getMovies(searchString: string): Observable<any> {
     return this.httpClient.get(`${this.API_URL}&s=${searchString}${this.API_KEY}`);
   }
-
-  //getMovieDetails(imdbId: string): Observable<any> {
-  //  return this.httpClient.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${imdbId}&plot=full`);
-  //}
   
   getMovieDetails(imdbId: string): Observable<MovieDetail>  {
 
-    return this.httpClient.get(`https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${imdbId}`)
+    return this.httpClient.get(`${this.API_URL}apikey=${this.API_KEY}&i=${imdbId}`)
     .pipe(
       map((response: any) => response.Search)
     );

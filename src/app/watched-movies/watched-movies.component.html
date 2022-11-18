@@ -3,6 +3,14 @@
       <h1 class="text-5xl font-bold text-center mb-3 text-black pb-5 pt-3">Watched movies</h1>
 
   </div>
+
+ <!-- line -->
+ <div aria-hidden="true">
+    <div class="py-5">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+
   <div>
           <div *ngFor="let item of movies">
               <div *ngIf="item.id != 1 && item.Watched != false" class="p-5 BorderBottom relativeContainer ">
@@ -19,9 +27,22 @@
                               <div class="flex">
                                   <img src="../../assets/star-icon.png" class="h-4 w-4 mt-1 mr-1" alt="">
                                   <p class="text-gray-800">{{item.Rating}}/10</p>
+                                
                               </div>
                           </div>
                       </div>
+                      
+                      <div  *ngIf="item.Rating === null" class="sm:col-span-1 col-span-2 h-full DivForMiddle">
+                        <div class="align-middle ItemForMiddle">
+                            <p class="text-gray-800">My rating</p>
+                            <div class="flex">
+                                <img src="../../assets/star-icon.png" class="h-4 w-4 mt-1 mr-1" alt="">
+                                <p class="text-gray-800">N/A</p>
+                              
+                            </div>
+                        </div>
+                    </div>
+
                       <div class="align-middle bg-gray-200 sm:col-span-3 col-span-6 h-28 rounded-md p-2 mt-4 md:mt-0">
                           <div class="w-full">
                               <p *ngIf="item.Reaction != null">{{item.Reaction}}</p>

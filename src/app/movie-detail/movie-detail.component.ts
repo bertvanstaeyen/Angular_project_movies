@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.css']
 })
+
 export class MovieDetailComponent implements OnInit {
   movieDetail:any;
   movieId = this.route.snapshot.paramMap.get('id')?.toString();
@@ -15,12 +16,10 @@ export class MovieDetailComponent implements OnInit {
   constructor(private movieService: MovieService, private route: ActivatedRoute, private http: HttpClient) {
     this.movieDetail = this.http.get(`https://www.omdbapi.com/?apikey=3933c744&i=${this.movieId}`).subscribe((data)=>{
       this.movieDetail = data
-      console.warn(data)
     })
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Add movie to watchlist
   movieToWatchList() {

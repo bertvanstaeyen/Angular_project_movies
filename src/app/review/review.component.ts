@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
+
 export class ReviewComponent implements OnInit {
 
   movieId = this.route.snapshot.paramMap.get('id')?.toString();
@@ -21,8 +22,7 @@ export class ReviewComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   addReaction(movie: any) {
     this.http.get(`http://localhost:3000/moviedetail/` + movie.id).subscribe(data => {
@@ -53,6 +53,6 @@ export class ReviewComponent implements OnInit {
     this.http.put(`http://localhost:3000/moviedetail/` + movie.id, 
     {Title: movie.Title, Poster: movie.Poster, Year: movie.Year, Watched: true, Rating: movie.Rating, Reaction: movie.Reaction})
     .subscribe()
-    window.location.href = '/watched';
+    window.location.href = '/watchedmovies';
   }
 }

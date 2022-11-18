@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './watched-movies.component.html',
   styleUrls: ['./watched-movies.component.css']
 })
+
 export class WatchedMoviesComponent implements OnInit {
 
   movies:any;
@@ -14,13 +15,10 @@ export class WatchedMoviesComponent implements OnInit {
   constructor(private http: HttpClient) { 
     this.http.get('http://localhost:3000/moviedetail').subscribe(data => {
       this.movies = data;
-
-      console.warn(data)
       });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   removeMovie(id: string) {
     console.warn(`http://localhost:3000/moviedetail/` + id)

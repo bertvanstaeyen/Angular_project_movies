@@ -20,8 +20,7 @@ export class WatchlistComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   reviewMovie(movie: any) {
     console.warn('hey')
@@ -41,7 +40,7 @@ export class WatchlistComponent implements OnInit {
     this.http.put(`http://localhost:3000/moviedetail/` + movie.id, 
     {Title: movie.Title, Poster: movie.Poster, Year: movie.Year, Watched: true, Rating: movie.Rating, Reaction: movie.Reaction})
     .subscribe()
-    window.location.href = '/watched';
+    window.location.href = '/watchedmovies';
   }
 
   addRating(id:string) {
