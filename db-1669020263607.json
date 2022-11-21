@@ -15,13 +15,13 @@
       "Year": "2000",
       "Watched": true,
       "Rating": 8,
-      "Reaction": "ddfdfdf",
+      "Reaction": "great movie\n",
       "id": 7
     },
     {
-      "Title": "Toy Story That Time Forgot",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BOTc2OTA1MDM4M15BMl5BanBnXkFtZTgwNjczMDk5MjE@._V1_SX300.jpg",
-      "Year": "2014",
+      "Title": "Harry Potter and the Deathly Hallows: Part 2",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+      "Year": "2011",
       "Watched": false,
       "Rating": null,
       "Reaction": null,

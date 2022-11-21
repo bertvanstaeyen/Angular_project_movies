@@ -1,8 +1,6 @@
 <div>
-  <div class="BorderBottom">
-      <h1 class="text-5xl font-bold text-center mb-3 text-black pb-5 pt-3">Watched movies</h1>
+    <h1 class="text-3xl font-bold">My Watched Movies</h1>
 
-  </div>
 
  <!-- line -->
  <div aria-hidden="true">
@@ -12,7 +10,7 @@
   </div>
 
   <div>
-          <div *ngFor="let item of movies">
+          <div *ngFor="let item of movies" class="bg-white rounded-xl mb-3">
               <div *ngIf="item.id != 1 && item.Watched != false" class="p-5 BorderBottom relativeContainer ">
                   <div class="grid grid-cols-8 gap-2 ">
                       <div class="sm:col-span-1 col-span-2">

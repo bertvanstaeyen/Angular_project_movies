@@ -9,7 +9,7 @@
 
   <div class="rounded-lg">
     <div>
-        <div *ngFor="let item of movies">
+        <div *ngFor="let item of movies" class="bg-white rounded-xl mb-3">
             <div *ngIf="item.id != 1 && item.Watched == false" class="p-5 BorderBottom">
                 <div class="grid grid-cols-12 firstLine">
                     <img src="{{item.Poster}}" class="h-32 col-span-3" alt="">
