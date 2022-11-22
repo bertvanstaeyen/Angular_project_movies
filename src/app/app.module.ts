@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ReviewComponent } from './review/review.component';
+import { MovieModule } from './movie/movie.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReviewComponent } from './review/review.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MovieModule
   ],
   providers: [],
   bootstrap: [AppComponent]
