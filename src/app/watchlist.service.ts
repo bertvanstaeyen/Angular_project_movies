@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Movie } from './movie';
+/* import { Injectable } from '@angular/core';
+import { Movie } from './models/movie';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,4 +27,4 @@ export class WatchlistService {
     return this.httpClient.put<Movie>("http://localhost:3000/movies/", movie, {headers: headers});
   }
 
-}
+} */

@@ -10,22 +10,31 @@
       "Reaction": null
     },
     {
-      "Title": "American Psycho",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BZTM2ZGJmNjQtN2UyOS00NjcxLWFjMDktMDE2NzMyNTZlZTBiXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-      "Year": "2000",
-      "Watched": true,
-      "Rating": 8,
-      "Reaction": "ddfdfdf",
-      "id": 7
-    },
-    {
       "Title": "Toy Story That Time Forgot",
       "Poster": "https://m.media-amazon.com/images/M/MV5BOTc2OTA1MDM4M15BMl5BanBnXkFtZTgwNjczMDk5MjE@._V1_SX300.jpg",
       "Year": "2014",
+      "Watched": true,
+      "Rating": "10",
+      "Reaction": "dfdff",
+      "id": 8
+    },
+    {
+      "Title": "Toy Story 3",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg",
+      "Year": "2010",
       "Watched": false,
       "Rating": null,
       "Reaction": null,
-      "id": 8
+      "id": 10
+    },
+    {
+      "Title": "Toy Story 2",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMWM5ZDcxMTYtNTEyNS00MDRkLWI3YTItNThmMGExMWY4NDIwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
+      "Year": "1999",
+      "Watched": true,
+      "Rating": "6",
+      "Reaction": "Test",
+      "id": 11
     }
   ]
 }

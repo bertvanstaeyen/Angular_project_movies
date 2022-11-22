@@ -19,7 +19,6 @@ import { ReviewComponent } from './review/review.component';
     MenuComponent,
     WatchlistComponent,
     WatchedMoviesComponent,
-    MovieComponent,
     MovieDetailComponent,
     ReviewComponent
   ],
